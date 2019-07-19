@@ -1,4 +1,17 @@
-def menu():
+def algoritmos():
+	print(" ===========================================================================")
+	print("|            ALGORITMOS CRIPTOGRAFICOS                                      |")
+	print("|        SINTAXIS: python3 main.py <algoritmo>                              |")
+	print("| <Algoritmo>:                                                              |")
+	print("|              -em Esterilizacion de un medio                               |")
+	print("|              -oi Obtener imagen de un pendrive                            |")
+	print("|              -mi montar imagen                                            |")
+	print("|              -at Algoritmo Atbash                                         |")
+	print(" ===========================================================================")
+	print("Consultar la ayuda de un algoritmo:")
+	print("                         	SINTAXIS:")
+	print("                                      python3 main.py <algoritmo>")
+def ayudasterilizar():
 	print("================================================MENU=================================================")
 	print("| Sintaxis:                                                                                          |")
 	print("| python main.py -of Dispositivo -bs tamañoBloque -n Nombre -v Iteraciones                           |")
@@ -17,3 +30,5 @@ def menu():
 	print("| Fecha: 21/05/2019                                                                                  |")
 	print("| Repositorio: https://github.com/davinsonMellizo/Esterilizacion.git                                 |")
 	print("=====================================================================================================")
+
+		
