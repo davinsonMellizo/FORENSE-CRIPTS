@@ -3,17 +3,81 @@
 import os
 import sys
 from hashlib import md5
-from virus_total_apis import PublicApi
 import menu
-API_KEY = "a9089095456a6c812626239b837c894abcea66938853813118ebf16a5fff1690"
-api = PublicApi(API_KEY)
-with open("eicar_com.zip", "rb") as f:
-    file_hash = md5(f.read()).hexdigest()
-response = api.get_file_report(file_hash)
-if response["response_code"] == 200:
-    if response["results"]["positives"] > 0:
-        print("Archivo malicioso.")
-    else:
-        print("Archivo seguro.")
-else:
-    print("No ha podido obtenerse el análisis del archivo.")
+import esterilizar
+import virus
+import hashBusqueda
+import imagen
+
+
+if __name__ == "__main__":
+	if len(sys.argv)==1:
+		menu.algoritmos()
+	else:
+		if(len(sys.argv)>1):
+			if sys.argv[1]=="-em":
+				if (len(sys.argv)==6):
+					try:
+						num = int(sys.argv[5])
+						esterilizar.esterilizar()
+					except ValueError:
+						menu.ayudaesterilizar()
+				else:
+					menu.ayudaesterilizar()
+			if (sys.argv[1]=="-oi"):
+				if (len(sys.argv)==4):
+					imagen.obtenerImagen()
+				else:
+					menu.ayudaObtenerImagen()
+			if sys.argv[1]=="-mi":
+				if (len(sys.argv)==5):
+					try:
+						num = int(sys.argv[4])
+						imagen.montarimagenOffSet()	
+					except ValueError:
+						menu.ayudaMontarImagen()
+				else:
+					if (len(sys.argv)==4):
+						imagen.montarimagen()		
+					else:
+						menu.ayudaMontarImagen()
+			if sys.argv[1]=="-oh":
+				if (len(sys.argv)==3):
+					hashBusqueda.obtenerHash()
+				else:
+					menu.algoritmos()
+			if sys.argv[1]=="-ch":
+				if (len(sys.argv)==4):
+					hashBusqueda.compararHash()	
+				else:
+					menu.algoritmos()
+			if sys.argv[1]=="-ba":
+				if (len(sys.argv)==6):
+					print("DOTO")	
+				else:
+					menu.algoritmos()
+			if sys.argv[1]=="-bc":
+				if (len(sys.argv)==6):
+					print("DOTO")	
+				else:
+					menu.algoritmos()
+			if sys.argv[1]=="-ra":
+				if (len(sys.argv)==6):
+					print("DOTO")	
+				else:
+					menu.algoritmos()
+			if sys.argv[1]=="-at":
+				if (len(sys.argv)==6):
+					print("DOTO")		
+				else:
+					menu.algoritmos()
+			if sys.argv[1]=="-ai":
+				if (len(sys.argv)==6):
+					print("DOTO")	
+				else:
+					menu.algoritmos()
+			if sys.argv[1]=="-dc":
+				if (len(sys.argv)==6):
+					print("DOTO")	
+				else:
+					menu.algoritmos()
