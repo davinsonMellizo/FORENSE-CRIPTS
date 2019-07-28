@@ -8,6 +8,7 @@ import esterilizar
 import virus
 import hashBusqueda
 import imagen
+import time
 
 
 if __name__ == "__main__":
@@ -53,14 +54,14 @@ if __name__ == "__main__":
 					menu.algoritmos()
 			if sys.argv[1]=="-ba":
 				if (len(sys.argv)==6):
-					print("DOTO")	
+					print("TODO")	
 				else:
-					menu.algoritmos()
+					menu.ayudaBuscarArchivos()
 			if sys.argv[1]=="-bc":
-				if (len(sys.argv)==6):
-					print("DOTO")	
+				if (len(sys.argv)==4):
+					hashBusqueda.buscarCadenas()	
 				else:
-					menu.algoritmos()
+					menu.ayudaBuscarCadenas()
 			if sys.argv[1]=="-ra":
 				if (len(sys.argv)==6):
 					print("DOTO")	
@@ -72,12 +73,25 @@ if __name__ == "__main__":
 				else:
 					menu.algoritmos()
 			if sys.argv[1]=="-ai":
-				if (len(sys.argv)==6):
-					print("DOTO")	
+				if (len(sys.argv)==3):
+					virus.analizar()
 				else:
-					menu.algoritmos()
+					menu.ayudaAnalisisInfectados()
+			if sys.argv[1]=="-air":
+				if (len(sys.argv)==3):
+					insInicial=time.time()
+					print("Procesando...")
+					virus.analizarRe(sys.argv[2])
+					insFinal=time.time()
+					tiempo=insFinal- insInicial
+					print("Tiempo de Ejecucion", tiempo)
+				else:
+					menu.ayudaAnalisisInfectados()
 			if sys.argv[1]=="-dc":
 				if (len(sys.argv)==6):
 					print("DOTO")	
 				else:
-					menu.algoritmos()
+					if (len(sys.argv)==6):
+						print("DOTO")
+					else:
+						menu.ayudaAnalisisInfectados()

@@ -1,1 +1,11 @@
-b470dac007af54a2de0b9f7e9c8eaba1  menu.py
+Procesando...
+ArVirus.zip: 
+Archivo malicioso.
+==================================================
+hola.zip: 
+No ha podido obtenerse el análisis del archivo.
+==================================================
+ArVirusEnsa.zip: 
+No ha podido obtenerse el análisis del archivo.
+==================================================
+('Tiempo de Ejecucion', 2.2720541954040527)
