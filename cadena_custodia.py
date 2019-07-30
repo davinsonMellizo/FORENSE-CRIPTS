@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import os
 import sys 
 import subprocess 
@@ -173,5 +175,3 @@ def cadenaCustodia(ruta):
     
 
 
-#llamado a la funcion cadenaCustodia
-cadenaCustodia(sys.argv[1])

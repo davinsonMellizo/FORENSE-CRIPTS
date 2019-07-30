@@ -9,6 +9,7 @@ import virus
 import hashBusqueda
 import imagen
 import time
+import cadena_custodia
 
 
 if __name__ == "__main__":
@@ -88,10 +89,7 @@ if __name__ == "__main__":
 				else:
 					menu.ayudaAnalisisInfectados()
 			if sys.argv[1]=="-dc":
-				if (len(sys.argv)==6):
-					print("DOTO")	
+				if (len(sys.argv)==3):
+					cadena_custodia.cadenaCustodia(sys.argv[2])	
 				else:
-					if (len(sys.argv)==6):
-						print("DOTO")
-					else:
-						menu.ayudaAnalisisInfectados()
+					menu.ayudaDiligenicarCadena()
