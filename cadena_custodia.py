@@ -19,7 +19,7 @@ def ls(ruta):
 
 def generarWord(info):
 
-    
+    insInicial=time.time()
     archivos = info.get('archivos')
 
     document = Document()
@@ -131,6 +131,9 @@ def generarWord(info):
 
     document.save('Informe_Forense_casos_num_'+info.get('numCaso')+'.docx')
     print('Archivo generado: '+'Informe_Forense_Caso_Num_'+info.get('numCaso')+'.docx')
+    insFinal=time.time()
+    tiempo=insFinal- insInicial
+    print("Tiempo de Ejecucion", tiempo)
 
 
 def cadenaCustodia(ruta):
@@ -143,18 +146,18 @@ def cadenaCustodia(ruta):
         info = {}
         
         print("------FORULARIO DE CADENA DE CUSTODIA------")
-        info['numCaso'] = raw_input("Digite el numero del caso: ")
+        info['numCaso'] = raw_input("Digite el número del caso: ")
         info['delito'] = raw_input("Digite el tipo de delito: ")
-        print("--------DATOS DEL OFICIOAL ENCARGADO-------")
+        print("---------DATOS DEL OFICIAL ENCARGADO-------")
         info['nomOfEncargado'] = raw_input("Nombre: ")
-        info['idOfEncargado'] = raw_input("Identificacion: ")
+        info['idOfEncargado'] = raw_input("Identificación: ")
         print("-----------DATOS DE LA VICTIMA-------------")
         info['nomVictima'] = raw_input("Nombre: ")
         print("----------DATOS DEL SOSPECHOSO-------------")
         info['nomSospechoso'] = raw_input("Nombre: ")
         print("---------DATOS DE LA INCUATACION-----------")
-        info['fecha'] = time.strftime("%c")#raw_input("Ingrese la fhecha de la incuatacion: ")
-        info['lugar'] = raw_input("Ingrese lugar de la incuatacion: ")
+        info['fecha'] = time.strftime("%c")
+        info['lugar'] = raw_input("Ingrese lugar de la incuatación: ")
         print("Generando archivo......")
         
         i = 0
@@ -172,6 +175,40 @@ def cadenaCustodia(ruta):
 
     else:
         print("Directori vacio")
+def cadenaCustodiaVacia(ruta):
+    
+    listaArchivos = ls(ruta)
+    numEvidencias = len(listaArchivos)
+        
+    if numEvidencias != 0:
+        
+        info = {}
+        
+        info['numCaso'] = ""
+        info['delito'] = ""
+        info['nomOfEncargado'] = ""
+        info['idOfEncargado'] = ""
+        info['nomVictima'] = ""
+        info['nomSospechoso'] = ""
+        info['fecha'] = time.strftime("%c")#raw_input("Ingrese la fhecha de la incuatacion: ")
+        info['lugar'] = ""
+        print("Generando archivo......")
+        
+        i = 0
+        listaItems = []
+        while (i<numEvidencias):
+            item = {}
+            item['numItem'] = str(i+1)
+            item['nomArchivo'] = listaArchivos[i]
+            item['desArchivo'] = subprocess.check_output('file '+ruta+listaArchivos[i],shell=True)
+            item['hash'] = subprocess.check_output('md5sum '+ruta+listaArchivos[i],shell=True)[0:31]     
+            listaItems.append(item)
+            i = i+1
+        info['archivos'] = listaItems
+        generarWord(info)    
+
+    else:
+        print("Directorio vacio")
     
 
 

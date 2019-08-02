@@ -10,6 +10,7 @@ import hashBusqueda
 import imagen
 import time
 import cadena_custodia
+import carving
 
 
 if __name__ == "__main__":
@@ -64,10 +65,15 @@ if __name__ == "__main__":
 				else:
 					menu.ayudaBuscarCadenas()
 			if sys.argv[1]=="-ra":
-				if (len(sys.argv)==6):
-					print("DOTO")	
+				if (len(sys.argv)==5):
+					carving.carvingFile(sys.argv)
 				else:
-					menu.algoritmos()
+					menu.ayudaRecuperarArchivos()
+			if sys.argv[1]=="-raa":
+				if (len(sys.argv)==4):
+					carving.carvingAll(sys.argv)
+				else:
+					menu.ayudaRecuperarArchivos()
 			if sys.argv[1]=="-at":
 				if (len(sys.argv)==6):
 					print("DOTO")		
@@ -91,5 +97,10 @@ if __name__ == "__main__":
 			if sys.argv[1]=="-dc":
 				if (len(sys.argv)==3):
 					cadena_custodia.cadenaCustodia(sys.argv[2])	
+				else:
+					menu.ayudaDiligenicarCadena()
+			if sys.argv[1]=="-dcv":
+				if (len(sys.argv)==3):
+					cadena_custodia.cadenaCustodiaVacia(sys.argv[2])	
 				else:
 					menu.ayudaDiligenicarCadena()
